@@ -129,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 .initPopupWindow(new CommonPopupWindow.InitPoputWindowCallback() {
                     @Override
                     public void initPopupWindow(@NonNull View view, @NonNull CommonPopupWindow popupWindow) {
-                        View view = popupWindow.getView(R.id.xx);
+                        //  View view = popupWindow.getView(R.id.xx);
+                        // ...
                     }
                 })
                 .setPopupWindowCallback(new CommonPopupWindow.PopupWindowCallback() {
