@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.jjj.smartpopupwindow.CommonPopupWindow;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.ALIGN_LEFT;
@@ -125,6 +126,23 @@ public class MainActivity extends AppCompatActivity {
                 .setContentView(R.layout.popupwindow_view)
                 .setLayoutWrapContent()
                 .createPopupWindow()
+                .initPopupWindow(new CommonPopupWindow.InitPoputWindowCallback() {
+                    @Override
+                    public void initPopupWindow(@NonNull View view, @NonNull CommonPopupWindow popupWindow) {
+                        View view = popupWindow.getView(R.id.xx);
+                    }
+                })
+                .setPopupWindowCallback(new CommonPopupWindow.PopupWindowCallback() {
+                    @Override
+                    public void onShow(View view, CommonPopupWindow popupWindow) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(View view, CommonPopupWindow popupWindow) {
+
+                    }
+                })
                 .showBashOfAnchor(textView, new CommonPopupWindow.LayoutGravity(gravity), 0, 0)
                 .showPopupWindow();
     }
