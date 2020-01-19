@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/left_top_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕左上方" />
+
+        <Button
+            android:id="@+id/top_center_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕正上方" />
+
+        <Button
+            android:id="@+id/right_top_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕右上方" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/left_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕左下方" />
+
+        <Button
+            android:id="@+id/bottom_center_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕正下方" />
+
+        <Button
+            android:id="@+id/right_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位于屏幕右下方" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/center_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="位于屏幕正中" />
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:padding="16dp"
+        android:text="Hello World!"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/anchor_left_top_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物左上方" />
+
+        <Button
+            android:id="@+id/anchor_top_center_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物正上方" />
+
+        <Button
+            android:id="@+id/anchor_right_top_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物右上方" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/anchor_left_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物左上方" />
+
+        <Button
+            android:id="@+id/anchor_bottom_center_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物正上方" />
+
+        <Button
+            android:id="@+id/anchor_right_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对于参照物右上方" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/anchor_center_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="相对于参照物正中" />
+</LinearLayout>
