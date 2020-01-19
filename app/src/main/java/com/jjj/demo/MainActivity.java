@@ -1,9 +1,11 @@
-package com.jjj.smartpopupwindow;
+package com.jjj.demo;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+
+import com.jjj.smartpopupwindow.CommonPopupWindow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
