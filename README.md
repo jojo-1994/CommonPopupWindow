@@ -11,7 +11,7 @@ maven { url 'https://jitpack.io' }
      
 #### 2.在项目中引用
 ```
-implementation 'com.github.jjjSilence:SmartPopupWindow:1.0.1'
+implementation 'com.github.jjjSilence:SmartPopupWindow:1.0.3'
 ```
 
 #### 3.开始创建一个popupwindow
