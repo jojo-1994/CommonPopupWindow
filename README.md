@@ -1,6 +1,6 @@
 # [SmartPopupWindow](https://github.com/jjjSilence/SmartPopupWindow)
 
-如果你的项目需要显示很多popupwindow，那么[SmartPopupWindow](https://github.com/jjjSilence/SmartPopupWindow)可能能帮忙。
+如果你的项目需要显示很多popupwindow，可以看看[SmartPopupWindow](https://github.com/jjjSilence/SmartPopupWindow)。
 像写activity一样创建popuwindow.
 来看看具体的如何使用吧：
 
