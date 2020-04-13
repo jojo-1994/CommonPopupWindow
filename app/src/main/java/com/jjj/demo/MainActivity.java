@@ -1,14 +1,13 @@
 package com.jjj.demo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.jjj.smartpopupwindow.CommonPopupWindow;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.ALIGN_LEFT;
 import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.ALIGN_RIGHT;
