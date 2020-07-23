@@ -1,4 +1,4 @@
-# [CommonPopupWindow](https://github.com/jjjSilence/CommonPopupWindow) PopupWindow管理库
+# [PopupWindow管理库](https://github.com/jjjSilence/CommonPopupWindow)
 
 最近更新：2020-07-23，重构项目，简化CommonPopupWindow的使用方式。
 
