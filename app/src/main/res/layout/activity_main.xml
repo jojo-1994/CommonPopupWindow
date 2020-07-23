@@ -15,18 +15,21 @@
             android:id="@+id/left_top_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕左上方" />
 
         <Button
             android:id="@+id/top_center_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕正上方" />
 
         <Button
             android:id="@+id/right_top_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕右上方" />
     </LinearLayout>
 
@@ -38,18 +41,21 @@
             android:id="@+id/left_bottom_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕左下方" />
 
         <Button
             android:id="@+id/bottom_center_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕正下方" />
 
         <Button
             android:id="@+id/right_bottom_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="位于屏幕右下方" />
     </LinearLayout>
 
@@ -82,20 +88,24 @@
             android:id="@+id/anchor_left_top_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物左上方" />
 
         <Button
             android:id="@+id/anchor_top_center_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物正上方" />
 
         <Button
             android:id="@+id/anchor_right_top_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物右上方" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -104,18 +114,21 @@
             android:id="@+id/anchor_left_bottom_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物左上方" />
 
         <Button
             android:id="@+id/anchor_bottom_center_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物正上方" />
 
         <Button
             android:id="@+id/anchor_right_bottom_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="相对于参照物右上方" />
     </LinearLayout>
 

@@ -1,2 +1,2 @@
-include ':app', ':smartpopupwindowlib'
-rootProject.name='SmartPopupWindow'
+include ':app', ':popupwindow'
+rootProject.name='CommonPopupWindow'

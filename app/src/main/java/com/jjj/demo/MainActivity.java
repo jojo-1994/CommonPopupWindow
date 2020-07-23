@@ -6,15 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jjj.smartpopupwindow.CommonPopupWindow;
+import com.jjj.smartpopupwindow.LayoutGravity;
+import com.jjj.smartpopupwindow.OnDismissListener;
+import com.jjj.smartpopupwindow.OnInitCallback;
+import com.jjj.smartpopupwindow.OnShowListener;
 
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.ALIGN_LEFT;
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.ALIGN_RIGHT;
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.CENTER_HORIZONTAL;
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.CENTER_VERTICAL;
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.TO_ABOVE;
-import static com.jjj.smartpopupwindow.CommonPopupWindow.LayoutGravity.TO_BOTTOM;
+import static com.jjj.smartpopupwindow.LayoutGravity.ALIGN_LEFT;
+import static com.jjj.smartpopupwindow.LayoutGravity.ALIGN_RIGHT;
+import static com.jjj.smartpopupwindow.LayoutGravity.CENTER_HORIZONTAL;
+import static com.jjj.smartpopupwindow.LayoutGravity.CENTER_VERTICAL;
+import static com.jjj.smartpopupwindow.LayoutGravity.TO_ABOVE;
+import static com.jjj.smartpopupwindow.LayoutGravity.TO_BOTTOM;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -111,39 +116,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showPopupWindowAtLocation(int gravity) {
-        new CommonPopupWindow(MainActivity.this)
-                .setContentView(R.layout.popupwindow_view)
-                .setLayoutWrapContent()
-                .createPopupWindow()
+        new CommonPopupWindow(MainActivity.this, R.layout.popupwindow_view)
+                .setLayoutSize(100, 200)
                 .showAtLocation(findViewById(android.R.id.content), gravity, 0, 0)
                 .showPopupWindow();
     }
 
     private void showPopupWindowBashOfAnchor(int gravity) {
         final TextView textView = findViewById(R.id.text_view);
-        new CommonPopupWindow(MainActivity.this)
-                .setContentView(R.layout.popupwindow_view)
+        new CommonPopupWindow(MainActivity.this, R.layout.popupwindow_view)
                 .setLayoutWrapContent()
-                .createPopupWindow()
-                .initPopupWindow(new CommonPopupWindow.InitPoputWindowCallback() {
+                .setText(R.id.text, "hello jjj")
+                .setWindowAlphaOnShow(0.6f)
+                .setWindowAlphaOnDismiss(1.0f)
+                .initPopupWindow(new OnInitCallback() {
                     @Override
-                    public void initPopupWindow(@NonNull View view, @NonNull CommonPopupWindow popupWindow) {
+                    public void onInit(@NonNull View view, @NonNull CommonPopupWindow popupWindow) {
                         //  View view = popupWindow.getView(R.id.xx);
                         // ...
                     }
                 })
-                .setPopupWindowCallback(new CommonPopupWindow.PopupWindowCallback() {
+                .setOnClickListener(R.id.text, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "what？", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setOnShowListener(new OnShowListener() {
                     @Override
                     public void onShow(View view, CommonPopupWindow popupWindow) {
 
                     }
-
+                })
+                .setOnDismissListener(new OnDismissListener() {
                     @Override
                     public void onDismiss(View view, CommonPopupWindow popupWindow) {
 
                     }
                 })
-                .showBashOfAnchor(textView, new CommonPopupWindow.LayoutGravity(gravity), 0, 0)
+                .showBashOfAnchor(textView, new LayoutGravity(gravity), 0, 0)
                 .showPopupWindow();
     }
 }
