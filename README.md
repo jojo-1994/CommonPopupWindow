@@ -20,7 +20,7 @@ maven { url 'https://jitpack.io' }
 implementation 'com.github.jjjSilence:CommonPopupWindow:1.0.6'
 ```
 
-#### 3.示例代码
+#### 3.示例代码:
 ```
      new CommonPopupWindow.PopupWindowBuilder(MainActivity.this)
                         .setContent(R.layout.popupwindow_view)
