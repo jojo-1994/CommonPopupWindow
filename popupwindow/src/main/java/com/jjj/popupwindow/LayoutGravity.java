@@ -1,4 +1,4 @@
-package com.jjj.smartpopupwindow;
+package com.jjj.popupwindow;
 
 import android.view.View;
 import android.widget.PopupWindow;

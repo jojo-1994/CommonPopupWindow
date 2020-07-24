@@ -1,4 +1,4 @@
-package com.jjj.smartpopupwindow;
+package com.jjj.popupwindow;
 
 import org.junit.Test;
 

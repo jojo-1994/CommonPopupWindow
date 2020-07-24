@@ -5,21 +5,19 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.jjj.smartpopupwindow.CommonPopupWindow;
-import com.jjj.smartpopupwindow.LayoutGravity;
-import com.jjj.smartpopupwindow.OnDismissListener;
-import com.jjj.smartpopupwindow.OnInitCallback;
-import com.jjj.smartpopupwindow.OnShowListener;
+import com.jjj.popupwindow.CommonPopupWindow;
+import com.jjj.popupwindow.LayoutGravity;
+import com.jjj.popupwindow.OnDismissListener;
+import com.jjj.popupwindow.OnInitCallback;
+import com.jjj.popupwindow.OnShowListener;
 
-import static com.jjj.smartpopupwindow.LayoutGravity.ALIGN_LEFT;
-import static com.jjj.smartpopupwindow.LayoutGravity.ALIGN_RIGHT;
-import static com.jjj.smartpopupwindow.LayoutGravity.CENTER_HORIZONTAL;
-import static com.jjj.smartpopupwindow.LayoutGravity.CENTER_VERTICAL;
-import static com.jjj.smartpopupwindow.LayoutGravity.TO_ABOVE;
-import static com.jjj.smartpopupwindow.LayoutGravity.TO_BOTTOM;
+import static com.jjj.popupwindow.LayoutGravity.ALIGN_LEFT;
+import static com.jjj.popupwindow.LayoutGravity.ALIGN_RIGHT;
+import static com.jjj.popupwindow.LayoutGravity.CENTER_HORIZONTAL;
+import static com.jjj.popupwindow.LayoutGravity.CENTER_VERTICAL;
+import static com.jjj.popupwindow.LayoutGravity.TO_ABOVE;
+import static com.jjj.popupwindow.LayoutGravity.TO_BOTTOM;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -116,30 +114,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showPopupWindowAtLocation(int gravity) {
-        new CommonPopupWindow(MainActivity.this, R.layout.popupwindow_view)
-                .setLayoutSize(100, 200)
-                .showAtLocation(findViewById(android.R.id.content), gravity, 0, 0)
-                .showPopupWindow();
+        new CommonPopupWindow.PopupWindowBuilder(this)
+                .setContent(R.layout.popupwindow_view)
+                .setLayoutWrapContent()
+                .create()
+                .showAtLocation(gravity);
     }
 
     private void showPopupWindowBashOfAnchor(int gravity) {
-        final TextView textView = findViewById(R.id.text_view);
-        new CommonPopupWindow(MainActivity.this, R.layout.popupwindow_view)
+        new CommonPopupWindow.PopupWindowBuilder(this)
+                .setContent(R.layout.popupwindow_view)
                 .setLayoutWrapContent()
-                .setText(R.id.text, "hello jjj")
                 .setWindowAlphaOnShow(0.6f)
                 .setWindowAlphaOnDismiss(1.0f)
-                .initPopupWindow(new OnInitCallback() {
+                .setOnInitCallback(new OnInitCallback() {
                     @Override
-                    public void onInit(@NonNull View view, @NonNull CommonPopupWindow popupWindow) {
-                        //  View view = popupWindow.getView(R.id.xx);
-                        // ...
-                    }
-                })
-                .setOnClickListener(R.id.text, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(MainActivity.this, "what？", Toast.LENGTH_SHORT).show();
+                    public void onInit(@NonNull View view, @NonNull CommonPopupWindow commonPopupWindow) {
+
                     }
                 })
                 .setOnShowListener(new OnShowListener() {
@@ -154,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 })
-                .showBashOfAnchor(textView, new LayoutGravity(gravity), 0, 0)
-                .showPopupWindow();
+                .create()
+                .showBashOfAnchor(findViewById(R.id.text_view), new LayoutGravity(gravity), 0, 0);
     }
 }

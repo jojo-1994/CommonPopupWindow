@@ -115,21 +115,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="相对于参照物左上方" />
+            android:text="相对于参照物左下方" />
 
         <Button
             android:id="@+id/anchor_bottom_center_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="相对于参照物正上方" />
+            android:text="相对于参照物正下方" />
 
         <Button
             android:id="@+id/anchor_right_bottom_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="相对于参照物右上方" />
+            android:text="相对于参照物右下方" />
     </LinearLayout>
 
     <Button

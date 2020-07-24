@@ -1,4 +1,4 @@
-package com.jjj.smartpopupwindow;
+package com.jjj.popupwindow;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -10,5 +10,5 @@ import android.view.View;
  * @since 2020-07-23
  */
 public interface OnInitCallback {
-    void onInit(@NonNull View view, @NonNull CommonPopupWindow popupWindow);
+    void onInit(@NonNull View view, @NonNull CommonPopupWindow commonPopupWindow);
 }

@@ -1,4 +1,4 @@
-package com.jjj.smartpopupwindow;
+package com.jjj.popupwindow;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.jjj.smartpopupwindow", appContext.getPackageName());
+        assertEquals("com.jjj.smartpopupwindow.test", appContext.getPackageName());
     }
 }
