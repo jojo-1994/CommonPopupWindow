@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jjj.popupwindow.CommonPopupWindow;
 import com.jjj.popupwindow.LayoutGravity;
@@ -109,6 +110,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showPopupWindowBashOfAnchor(CENTER_HORIZONTAL | CENTER_VERTICAL);
+            }
+        });
+        findViewById(R.id.outside_touch_not_dismiss_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new CommonPopupWindow.PopupWindowBuilder(MainActivity.this)
+                        .setContent(R.layout.popupwindow_view)
+                        .setLayoutWrapContent()
+                        .setOutsideTouchDismiss(false)
+                        .setOnInitCallback(new OnInitCallback() {
+                            @Override
+                            public void onInit(@NonNull View view, @NonNull final CommonPopupWindow commonPopupWindow) {
+                                TextView textView = view.findViewById(R.id.text);
+                                textView.setText("点此消失，点击外部不消失");
+                                textView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        commonPopupWindow.dismiss();
+                                    }
+                                });
+                            }
+                        })
+                        .create()
+                        .showAtLocation(Gravity.CENTER);
             }
         });
     }

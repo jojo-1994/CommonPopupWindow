@@ -9,5 +9,11 @@ import android.view.View;
  * @since 2020-07-23
  */
 public interface OnDismissListener {
+    /**
+     * PopupWindow dismiss callback method
+     *
+     * @param view
+     * @param popupWindow
+     */
     void onDismiss(View view, CommonPopupWindow popupWindow);
 }

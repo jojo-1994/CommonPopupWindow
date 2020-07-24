@@ -132,9 +132,22 @@
             android:text="相对于参照物右下方" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/anchor_center_view"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="相对于参照物正中" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/anchor_center_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="相对于参照物正中" />
+
+        <Button
+            android:id="@+id/outside_touch_not_dismiss_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="点击外部Pop不消失" />
+    </LinearLayout>
 </LinearLayout>

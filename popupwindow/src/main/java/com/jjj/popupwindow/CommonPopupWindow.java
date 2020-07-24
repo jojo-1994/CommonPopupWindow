@@ -5,7 +5,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -44,17 +46,44 @@ public class CommonPopupWindow implements PopupWindow.OnDismissListener {
 
     private PopupWindow createPopupWindow() {
         if (mBuild.contentView == null) {
-            throw new RuntimeException("You do not set content view");
+            throw new IllegalStateException("You do not set content view");
         }
         mPopupWindow = new PopupWindow(mBuild.contentView, mBuild.width, mBuild.height);
-        mPopupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        mPopupWindow.setTouchable(true);
-        mPopupWindow.setFocusable(true);
-        mPopupWindow.setOutsideTouchable(mBuild.outsideTouchDismiss);
-        mPopupWindow.getContentView().setFocusable(true);
-        mPopupWindow.update();
         mPopupWindow.setOnDismissListener(this);
-
+        if (mBuild.outsideTouchDismiss) {
+            mPopupWindow.setFocusable(true);
+            mPopupWindow.setOutsideTouchable(true);
+            mPopupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        } else {
+            mPopupWindow.setFocusable(true);
+            mPopupWindow.setOutsideTouchable(false);
+            mPopupWindow.setBackgroundDrawable(null);
+            mPopupWindow.getContentView().setFocusable(true);
+            mPopupWindow.getContentView().setFocusableInTouchMode(true);
+            mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        mPopupWindow.dismiss();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            mPopupWindow.setTouchInterceptor(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    final int x = (int) event.getX();
+                    final int y = (int) event.getY();
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        return (x < 0) || (x >= mBuild.contentView.getMeasuredWidth()) ||
+                                (y < 0) || (y >= mBuild.contentView.getMeasuredHeight());
+                    } else {
+                        return event.getAction() == MotionEvent.ACTION_OUTSIDE;
+                    }
+                }
+            });
+        }
         if (mBuild.softInputMode != INVALID_VALUE) {
             mPopupWindow.setSoftInputMode(mBuild.softInputMode);
         }
@@ -64,6 +93,7 @@ public class CommonPopupWindow implements PopupWindow.OnDismissListener {
         if (mBuild.initCallback != null) {
             mBuild.initCallback.onInit(mBuild.contentView, this);
         }
+        mPopupWindow.update();
         return mPopupWindow;
     }
 
@@ -141,7 +171,6 @@ public class CommonPopupWindow implements PopupWindow.OnDismissListener {
         return mPopupWindow;
     }
 
-
     public static class PopupWindowBuilder {
         @NonNull
         private Activity activity;
@@ -166,7 +195,7 @@ public class CommonPopupWindow implements PopupWindow.OnDismissListener {
             setLayoutWrapContent();
         }
 
-        public PopupWindowBuilder setSize(int width, int height) {
+        public PopupWindowBuilder setLayoutSize(int width, int height) {
             this.width = width;
             this.height = height;
             return this;
@@ -204,7 +233,7 @@ public class CommonPopupWindow implements PopupWindow.OnDismissListener {
             return this;
         }
 
-        public PopupWindowBuilder setOutsideTouchable(boolean outsideTouchDismiss) {
+        public PopupWindowBuilder setOutsideTouchDismiss(boolean outsideTouchDismiss) {
             this.outsideTouchDismiss = outsideTouchDismiss;
             return this;
         }

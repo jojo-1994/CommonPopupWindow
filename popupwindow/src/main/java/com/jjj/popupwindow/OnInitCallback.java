@@ -10,5 +10,11 @@ import android.view.View;
  * @since 2020-07-23
  */
 public interface OnInitCallback {
+    /**
+     * PopupWindow init callback method
+     *
+     * @param view
+     * @param commonPopupWindow
+     */
     void onInit(@NonNull View view, @NonNull CommonPopupWindow commonPopupWindow);
 }
