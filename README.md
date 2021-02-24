@@ -17,7 +17,7 @@ maven { url 'https://jitpack.io' }
      
 #### 2.在app的build.gradle文件中添加：
 ```
-implementation 'com.github.jjjSilence:CommonPopupWindow:1.0.6'
+implementation 'com.github.jjjSilence:CommonPopupWindow:1.0.7'
 ```
 
 #### 3.示例代码:
